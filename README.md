@@ -1,6 +1,8 @@
 node-ssi
 ======
 
+**Note: I've swapped around the file and virtual declarations as, ASFAI, they didn't match the WAMP / MAMP usage.**
+
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency status][david-dm-image]][david-dm-url] [![Build status][appveyor-image]][appveyor-url] [![Built with Grunt][grunt-image]][grunt-url]
 
 A server-side-include system for nodejs.
@@ -8,8 +10,8 @@ A server-side-include system for nodejs.
 We only support parts of nginx ssi syntax:
 
 
-      <!--# include file="path" -->
-      <!--# include virtual="path" -->
+      <!--# include file="sibling/file.shtml" -->
+      <!--# include virtual="/child/sibling/file.shtml" -->
 
       <!--# set var="k" value="v" -->
 
@@ -22,8 +24,8 @@ We only support parts of nginx ssi syntax:
 
 Note:
 
-* `file` includes are always relative to the baseDir provided in the options.
-* `virtual` includes are relative to the current file.
+* `virtual` includes are always relative to the baseDir provided in the options.
+* `file` includes are relative to the current file.
 
 usage
 ======
@@ -54,6 +56,7 @@ test
 
 changelog
 ======
+ - 2015-04-09[10:30:00]:swapped file and virtual definitions
  - 2014-11-03[17:00:51]:support special chars like `\n`,`\v` etc.
  - 2014-12-04[12:39:20]:thanks for @nfriedly,we fixed some bugs and support more features
 
